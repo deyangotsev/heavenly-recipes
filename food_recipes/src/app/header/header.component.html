@@ -1,0 +1,28 @@
+<header>
+    <nav>
+        <ul>
+            <li routerLinkActive="active"><button type="button" id="logout" (click)="showLogout()">Logout</button></li>
+            <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
+            <!-- <li routerLinkActive="active"><a routerLink="/recipes/recipe/:id">dummy</a></li> -->
+            <li routerLinkActive="active"><a routerLink="/addrecipe">Add</a></li>
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a routerLink="/">Home</a>
+            </li>
+            <li routerLinkActive="active"><a routerLink="/register">Register</a></li>
+            <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+            
+        </ul>
+    </nav>
+    
+
+    <div class="logout-box" id="logout-box">
+        <p class="logout-title animate__flash">Are you sure you want to logout ?</p>
+        <!-- <p class="animate__backInDown">heyyyyyyyyy</p> -->
+
+        <div class="logout-buttons-container">
+            <button class="yes-no-buttons">Yes</button>
+            <button class="yes-no-buttons" (click)="cancelLogout()">No</button>
+        </div>
+       
+    </div>
+</header>
