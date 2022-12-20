@@ -1,0 +1,80 @@
+<main class="page">
+    <div class="recipe-page">
+
+      <section class="recipe-hero">
+
+        <img
+          [src]="retrievedRecipe.photo"
+          class="img recipe-hero-img"
+        />
+
+        <article class="recipe-info">
+
+            <!--title -->
+          <h2>{{retrievedRecipe.title}}</h2>
+
+          <!-- description -->
+          <p>
+            {{retrievedRecipe.description}}
+          </p>
+
+          <!-- prep, cook time, servings -->
+          <div class="recipe-icons">
+
+            <article>
+              <i class="fas fa-clock"></i>
+              <h5>prep time</h5>
+              <p>{{retrievedRecipe.prep_time + ' ' + retrievedRecipe.prep_time_unit}}</p>
+            </article>
+
+            <article>
+              <i class="far fa-clock"></i>
+              <h5>cook time</h5>
+              <p>{{retrievedRecipe.cook_time + ' ' + retrievedRecipe.cook_time_unit}}</p>
+            </article>
+
+            <article>
+              <i class="fas fa-user-friends"></i>
+              <h5>serving</h5>
+              <p>{{retrievedRecipe.servings}} servings</p>
+            </article>
+          </div>
+
+        </article>
+
+      </section>
+
+
+
+      <!-- content -->
+      <section class="recipe-content">
+        <article>
+          <h4>instructions</h4>
+          <!-- single instruction -->
+          <div class="single-instruction" *ngFor="let element of retrievedRecipe.directions, let i = index">
+            <header>
+              <p>step {{i+1}}</p>
+              <div></div>
+            </header>
+            <p>
+             {{element.direction}}
+            </p>
+          </div>
+          <!-- end of single instruction -->
+        </article>
+
+
+        <article class="second-column">
+          <div>
+            <h4>ingredients</h4>
+            <p class="single-ingredient" 
+            *ngFor="let element of retrievedRecipe.ingredients, let i = index"
+            >{{element.ingredient}}</p>
+          </div>
+        </article>
+        
+      </section>
+
+    </div>
+  </main>
+

@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { CreateRecipePageComponent } from './create-recipe-page/create-recipe-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
+import { RecipeInfoPageComponent } from './recipe-info-page/recipe-info-page.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RecipesPageComponent } from './recipes-page/recipes-page.component';
     PageNotFoundComponent,
     CreateRecipePageComponent,
     RecipesPageComponent,
+    RecipeInfoPageComponent,
     
   ],
   imports: [
