@@ -1,0 +1,17 @@
+<main class="recipes-container">
+
+    <article class="recipe-card" *ngFor="let recipe of recipesList">
+
+        <a  routerLink="recipe/{{recipe.id}}" class="recipe-link">
+            <div class="image-container">
+                <img class="recipe-image" [src]="recipe.photo" alt="">
+            </div>
+
+            <div class="recipe-info">
+                <h3 style="text-align: center;">{{recipe.title}}</h3>
+            </div>
+
+        </a>
+    </article>
+
+</main>

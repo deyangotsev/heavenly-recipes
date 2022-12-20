@@ -47,13 +47,11 @@
                     <input type="text" class="ingredients" [(ngModel)]="el.ingredient" #name="ngModel"
                         name="ingredients{{i}}" placeholder="e.g 1 cup sugar">
 
-                
-                    <i class="far fa-minus-circle" (click)="removeIngredient(i)" ></i>
-
+                    <fa-icon [icon]="removeIcon" (click)="removeIngredient(i)"></fa-icon>
                 </div>
 
                 <button type="button" class="addButton" (click)="addIngredient()">
-                    <i class="far fa-plus-circle"></i>
+                    <fa-icon [icon]="addIcon"></fa-icon>
                     Add Ingredient
                 </button>
 
@@ -79,11 +77,11 @@
                     <textarea name="directions" class="textArea" id="" [(ngModel)]="el.direction" #name="ngModel"
                         name="directions{{i}}" placeholder="e.g Preheat oven to 350 degrees F" required=""></textarea>
 
-                    <i class="far fa-minus-circle" (click)="removeDirection(i)" ></i>
+                    <fa-icon [icon]="removeIcon" (click)="removeDirection(i)"></fa-icon>
                 </div>
 
                 <button type="button" class="addButton" (click)="addDirection()">
-                    <i class="far fa-plus-circle"></i>
+                    <fa-icon [icon]="addIcon"></fa-icon>
                     Add Direction
                 </button>
             </fieldset>

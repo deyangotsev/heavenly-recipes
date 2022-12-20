@@ -1,0 +1,51 @@
+.recipes-container{
+    padding: 20px;
+    height: 100vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+
+}
+
+.recipe-card {
+    background-color: black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    width: 285px;
+    height: 342px;
+    cursor: pointer;
+}
+
+.recipe-link:hover {
+    background-color: #E2D1C3;
+    color: black;
+    cursor: pointer;
+}
+
+
+.recipe-link {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+    color: white;
+    overflow: hidden;
+}
+
+.image-container {
+    height: 260px;
+}
+
+.recipe-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.recipe-info {
+    height: 100%;
+    padding: 7px;
+    
+    
+}
+

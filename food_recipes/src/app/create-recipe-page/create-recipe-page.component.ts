@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../model/recipe';
+import { Component, OnInit, Type } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { faMinusCircle, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Recipe } from '../model/recipe';
 import { DataService } from '../shared/data.service';
 
 @Component({
@@ -8,7 +9,6 @@ import { DataService } from '../shared/data.service';
   templateUrl: './create-recipe-page.component.html',
   styleUrls: ['./create-recipe-page.component.css']
 })
-
 export class CreateRecipePageComponent implements OnInit {
 
 
@@ -42,8 +42,9 @@ export class CreateRecipePageComponent implements OnInit {
   prep_time_unit:string = 'mins';
   cook_time_unit:string = 'mins';
 
-  // removeIcon = faMinusCircle;
-  // addIcon = faPlus;
+  removeIcon = faMinusCircle;
+  addIcon = faPlus;
+
 
 
 

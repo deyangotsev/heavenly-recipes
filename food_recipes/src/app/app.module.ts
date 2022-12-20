@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateRecipePageComponent } from './create-recipe-page/create-recipe-page.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { CreateRecipePageComponent } from './create-recipe-page/create-recipe-pa
     HomeComponent,
     PageNotFoundComponent,
     CreateRecipePageComponent,
+    RecipesPageComponent,
     
   ],
   imports: [
@@ -29,6 +32,7 @@ import { CreateRecipePageComponent } from './create-recipe-page/create-recipe-pa
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
