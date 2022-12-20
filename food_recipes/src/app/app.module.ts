@@ -17,6 +17,7 @@ import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { RecipeInfoPageComponent } from './recipe-info-page/recipe-info-page.component';
 import { LinkGuardService } from './shared/link-guard.service';
 import { AuthService } from './shared/auth.service';
+import { MyRecipesPageComponent } from './my-recipes-page/my-recipes-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AuthService } from './shared/auth.service';
     CreateRecipePageComponent,
     RecipesPageComponent,
     RecipeInfoPageComponent,
+    MyRecipesPageComponent,
     
   ],
   imports: [

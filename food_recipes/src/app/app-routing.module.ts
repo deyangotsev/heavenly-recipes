@@ -12,8 +12,8 @@ import { LinkGuardService } from './shared/link-guard.service';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register', component: RegisterPageComponent},
-  {path: 'login', component: LoginPageComponent, canActivate: [LinkGuardService]},
-  {path: 'create_recipe', component: CreateRecipePageComponent, canActivate: [LinkGuardService]},
+  {path: 'login', component: LoginPageComponent},
+  {path: 'create_recipe', component: CreateRecipePageComponent},
   {path: 'recipes', component:RecipesPageComponent},
   {path: 'recipes/recipe/:id', component: RecipeInfoPageComponent},
   {path: '**', component: PageNotFoundComponent},

@@ -10,4 +10,5 @@ export interface Recipe {
     cook_time: number,
     prep_time_unit: string,
     cook_time_unit:string,
+    author: string | null
 }

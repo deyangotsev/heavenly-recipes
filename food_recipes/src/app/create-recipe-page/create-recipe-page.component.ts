@@ -28,6 +28,7 @@ export class CreateRecipePageComponent implements OnInit {
     cook_time: 0,
     prep_time_unit: '',
     cook_time_unit: '',
+    author: ''
   }
 
   id:string = '';
@@ -41,6 +42,7 @@ export class CreateRecipePageComponent implements OnInit {
   cook_time:number = 0;
   prep_time_unit:string = 'mins';
   cook_time_unit:string = 'mins';
+  author = localStorage.getItem('user');
 
   removeIcon = faMinusCircle;
   addIcon = faPlus;
@@ -88,6 +90,7 @@ export class CreateRecipePageComponent implements OnInit {
     this.recipeObj.cook_time = this.cook_time;
     this.recipeObj.prep_time_unit = this.prep_time_unit;
     this.recipeObj.prep_time_unit = this.cook_time_unit;
+    this.recipeObj.author = this.author;
 
 
     this.data.addRecipe(this.recipeObj);

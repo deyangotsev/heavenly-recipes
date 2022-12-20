@@ -1,13 +1,12 @@
-import { Component, ErrorHandler, OnInit } from '@angular/core';
-import { Recipe } from '../model/recipe';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../shared/data.service';
 
 @Component({
-  selector: 'app-recipes-page',
-  templateUrl: './recipes-page.component.html',
-  styleUrls: ['./recipes-page.component.css']
+  selector: 'app-my-recipes-page',
+  templateUrl: './my-recipes-page.component.html',
+  styleUrls: ['./my-recipes-page.component.css']
 })
-export class RecipesPageComponent implements OnInit {
+export class MyRecipesPageComponent implements OnInit {
 
   recipesList: any[] = [];
 
@@ -23,6 +22,4 @@ export class RecipesPageComponent implements OnInit {
     });
   }
 
-  
 }
-
