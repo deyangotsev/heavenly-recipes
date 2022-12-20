@@ -1,0 +1,113 @@
+fieldset {
+    border: none;
+  }
+  
+  
+  
+  .formLayout__innerContainer {
+    max-width: 45%;
+    margin: 80px auto;
+    padding: 40px;
+    background: black;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .input_field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+  
+  }
+  
+  .input_field textarea {
+    min-height: 168px;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    resize: vertical;
+    padding: 16px;
+    margin-top: 10px;
+  }
+  
+  
+  .formLayout_section {
+    border-bottom: 1px solid white;
+    padding: 10pxd;
+  }
+  
+  .section {
+    border-top: 1px solid white;
+    padding: 16px 0 32px;
+  }
+  
+  
+  .hidden {
+    display: none;
+  }
+  
+  .ingredients {
+    outline: none;
+    background: transparent;
+    /* border-bottom: 1px solid #fff; */
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 10px;
+    min-height: 48px;
+    padding: 0 16px;
+  }
+  
+  .inputs {
+    outline: none;
+    background: transparent;
+    /* border-bottom: 1px solid #fff; */
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    min-height: 48px;
+    padding: 0 16px;
+    margin-top: 10px;
+  }
+  
+  .ingredients_section {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .addButton {
+    margin-top: 5px;
+    background: transparent;
+    color: white;
+    padding: 6px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+  
+ 
+  
+  .addButton:hover {
+    text-shadow: 0 -1px 0 #ef816c;
+    background: #03e9f4;
+    border-radius: 5px;
+  }
+  
+  .textArea {
+    resize: vertical;
+    width: 100%;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    min-height: 80px;
+    padding: 16px;
+    margin: 10px;
+  }
+  
+  .small_inputs {
+    min-height: 30px;
+    background: transparent;
+    color: white;
+  }

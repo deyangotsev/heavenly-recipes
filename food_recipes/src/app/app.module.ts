@@ -11,6 +11,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CreateRecipePageComponent } from './create-recipe-page/create-recipe-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RegisterPageComponent,
     HomeComponent,
     PageNotFoundComponent,
+    CreateRecipePageComponent,
     
   ],
   imports: [

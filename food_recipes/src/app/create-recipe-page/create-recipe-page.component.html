@@ -1,0 +1,126 @@
+<div class="formLayout__innerContainer">
+    <h1>Add a Recipe</h1>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+        <div class="formLayout_section">
+            <fieldset>
+                <legend>
+                    <h3>Recipe Description</h3>
+                </legend>
+
+                <div>
+                    <div class="input_field">
+                        <label for="">Recipe Title</label>
+                        <input type="text" name="title" [(ngModel)]="title" minlength="50" class="inputs" required="" placeholder="Give your recipe a title." >
+                    </div>
+
+
+                    <div class="input_field">
+                        <label for="">Description</label>
+                        <textarea name="description" ngModel id="" [(ngModel)]="description" required="" placeholder="Share the story behind your recipe and what makes it special."></textarea>
+                    </div>
+                </div>
+
+
+                <div class="input_field">
+                    <label for="">Photo</label>
+                    <input type="text" name="photo" [(ngModel)]="photo"  class="inputs" required="" placeholder="Enter URL for your image.">
+                </div>
+
+            </fieldset>
+        </div>
+
+        <div class="formLayout_section">
+            <fieldset>
+                <legend>
+                    <h3>Ingredients</h3>
+                    <p>
+                        Enter one ingredient per line. Include the quantity (i.e. cups, tablespoons) and any special
+                        preparation (i.e. sifted, softened, chopped).
+                    </p>
+                </legend>
+
+
+
+                <div class="ingredients_section" *ngFor="let el of ingredients; let i = index">
+                    <input type="text" class="ingredients" [(ngModel)]="el.ingredient" #name="ngModel"
+                        name="ingredients{{i}}" placeholder="e.g 1 cup sugar">
+
+                
+                    <i class="far fa-minus-circle" (click)="removeIngredient(i)" ></i>
+
+                </div>
+
+                <button type="button" class="addButton" (click)="addIngredient()">
+                    <i class="far fa-plus-circle"></i>
+                    Add Ingredient
+                </button>
+
+
+            </fieldset>
+        </div>
+
+        <div class="formLayout_section">
+            <fieldset>
+                <legend>
+                    <h3>
+                        Directions
+                    </h3>
+
+                    <p>
+                        Explain how to make your recipe, including oven temperatures, baking or cooking times, and pan
+                        sizes, etc.
+                    </p>
+                </legend>
+
+                <div class="ingredients_section" *ngFor="let el of directions; let i = index">
+
+                    <textarea name="directions" class="textArea" id="" [(ngModel)]="el.direction" #name="ngModel"
+                        name="directions{{i}}" placeholder="e.g Preheat oven to 350 degrees F" required=""></textarea>
+
+                    <i class="far fa-minus-circle" (click)="removeDirection(i)" ></i>
+                </div>
+
+                <button type="button" class="addButton" (click)="addDirection()">
+                    <i class="far fa-plus-circle"></i>
+                    Add Direction
+                </button>
+            </fieldset>
+        </div>
+
+        <div class="formLayout_section">
+            <fieldset style="display: flex; flex-direction: column; gap: 10px;">
+
+                <div style="display: flex; gap: 5px;">
+                    <label for="servings">Servings</label>
+                    <input type="number" name="servings" id="servings" class="small_inputs" [(ngModel)]="servings">
+                </div>
+
+                <div style="display: flex; gap: 5px;">
+                    <label for="prep_time">Prep Time</label>
+                    <input type="number" id="prep_time" name="prep_time" class="small_inputs" [(ngModel)]="prep_time">
+                    <select name="prep_time_unit" id="" class="small_inputs" [(ngModel)]="prep_time_unit">
+                        <option value="mins">mins</option>
+                        <option value="hours">hours</option>
+                        <option value="days">days</option>
+                    </select>
+
+
+                    <label for="cook_time">Cook Time</label>
+                    <input type="number" id="cook_time" name="cook_time" class="small_inputs" [(ngModel)]="cook_time">
+                    <select name="prep_time_unit" id="" class="small_inputs" [(ngModel)]="cook_time_unit">
+                        <option value="mins">mins</option>
+                        <option value="hours">hours</option>
+                        <option value="days">days</option>
+                    </select>
+                   
+                </div>
+            
+            </fieldset>
+        </div>
+
+        <button type="submit" class="addButton">Submit</button>
+
+    </form>
+</div>
