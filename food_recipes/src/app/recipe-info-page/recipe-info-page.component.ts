@@ -11,7 +11,7 @@ import { DataService } from '../shared/data.service';
 export class RecipeInfoPageComponent implements OnInit {
 
   recipeId: any = '';
-  retrievedRecipe: any;
+  retrievedRecipe: any = '';
   recipesList: any[] = [];
 
 
@@ -34,7 +34,6 @@ export class RecipeInfoPageComponent implements OnInit {
         this.activatedRoute.paramMap.subscribe((param) => {
           this.recipeId = param.get('id');
           this.retrievedRecipe = this.recipesList.find(x => x.id == this.recipeId);
-          console.log(this.retrievedRecipe);
         })
       }
     })

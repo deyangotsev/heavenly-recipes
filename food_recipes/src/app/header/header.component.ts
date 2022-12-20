@@ -10,9 +10,17 @@ export class HeaderComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
 
-
+  // loggedUser: any = localStorage.getItem('user');
+  checkLogged:boolean = false;
 
   ngOnInit(): void {
+    console.log('loaded');
+    if(localStorage.getItem('user') !== null) {
+      this.checkLogged = true;
+    }
+    else {
+      this.checkLogged = false;
+    }
   }
 
 
@@ -28,13 +36,22 @@ export class HeaderComponent implements OnInit {
     let element:any = document.getElementById('logout-box');
     element.classList.remove("animate__animated", "animate__fadeInDown");
     element.style.display = 'none';
+    console.log(this.auth.isLoggedIn)
   };
 
   logout() {
 
+
       this.auth.logout();
+      let element:any = document.getElementById('logout-box');
+      element.classList.remove("animate__animated", "animate__fadeInDown");
+      element.style.display = 'none';
   
   };
+
+  sigh() {
+    console.log(localStorage.getItem('user'));
+  }
 
   
 }

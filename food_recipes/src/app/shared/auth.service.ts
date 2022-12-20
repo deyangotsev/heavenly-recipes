@@ -7,19 +7,21 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  isLoggedIn:boolean = false;
+
 
 
   constructor(public fireauth: AngularFireAuth, private router: Router) { }
 
   //login method:
 
+  isLoggedIn:boolean = false;
+
   async login(email: string, password: string) {
 
     await this.fireauth.signInWithEmailAndPassword(email, password)
     .then((res) => {
       this.isLoggedIn = true;
-      localStorage.setItem('user', JSON.stringify(res.user));
+      localStorage.setItem('user', JSON.stringify(res.user?.uid));
       this.router.navigate(['']);
 
     }, err => {
@@ -47,11 +49,17 @@ export class AuthService {
     
     this.fireauth.signOut()
     .then( () => {
-      localStorage.removeItem('user'); 
+      localStorage.removeItem('user');
+      this.isLoggedIn = false;
       this.router.navigate(['']);
 
     }, err => {
       window.alert(err.message);
     });
+  };
+
+  isAuthenticated() {
+    return this.isLoggedIn;
   }
+
 }

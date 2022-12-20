@@ -23,7 +23,9 @@ export class LoginPageComponent implements OnInit {
     }
 
     this.auth.login(this.email, this.password);
-    console.log(this.auth.isLoggedIn);
+    // this.auth.isLoggedIn = true;
+    // console.log(this.auth.isLoggedIn);
+
     this.email = '';
     this.password = '';
 

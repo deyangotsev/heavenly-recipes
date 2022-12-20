@@ -15,6 +15,8 @@ import { CreateRecipePageComponent } from './create-recipe-page/create-recipe-pa
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { RecipeInfoPageComponent } from './recipe-info-page/recipe-info-page.component';
+import { LinkGuardService } from './shared/link-guard.service';
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { RecipeInfoPageComponent } from './recipe-info-page/recipe-info-page.com
     FormsModule,
     FontAwesomeModule,
   ],
-  providers: [],
+  providers: [LinkGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

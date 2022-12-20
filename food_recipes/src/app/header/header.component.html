@@ -1,15 +1,29 @@
 <header>
     <nav>
         <ul>
-            <li routerLinkActive="active"><button type="button" id="logout" (click)="showLogout()">Logout</button></li>
-            <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
-            <!-- <li routerLinkActive="active"><a routerLink="/recipes/recipe/:id">dummy</a></li> -->
-            <li routerLinkActive="active"><a routerLink="/addrecipe">Add</a></li>
-            <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                <a routerLink="/">Home</a>
-            </li>
-            <li routerLinkActive="active"><a routerLink="/register">Register</a></li>
-            <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+            <div style="display: flex;" *ngIf="checkLogged; else elseBlock">
+
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <a routerLink="/">Home</a>
+                </li>
+                <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
+                <li  routerLinkActive="active"><a routerLink="/create_recipe">Add Recipe</a></li>
+                <li routerLinkActive="active"><button type="button" id="logout" (click)="showLogout()">Logout</button></li>
+
+               
+            </div>
+
+            <ng-template #elseBlock> 
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <a routerLink="/">Home</a>
+                </li>
+                <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
+                <li (click)="sigh()" routerLinkActive="active"><a routerLink="/login">Login</a></li>
+                <li routerLinkActive="active"><a routerLink="/register">Register</a></li>
+            </ng-template>
+            
+       
+    
             
         </ul>
     </nav>
@@ -20,7 +34,7 @@
         <!-- <p class="animate__backInDown">heyyyyyyyyy</p> -->
 
         <div class="logout-buttons-container">
-            <button class="yes-no-buttons">Yes</button>
+            <button class="yes-no-buttons" (click)="logout()" >Yes</button>
             <button class="yes-no-buttons" (click)="cancelLogout()">No</button>
         </div>
        
