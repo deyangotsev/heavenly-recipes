@@ -1,7 +1,7 @@
 <app-header></app-header>
 <main class="recipes-container">
 
-    <article class="recipe-card" *ngFor="let recipe of recipesList">
+    <article class="recipe-card" *ngFor="let recipe of myrecipesList">
 
         <a  routerLink="recipe/{{recipe.id}}" class="recipe-link">
             <div class="image-container">
@@ -14,6 +14,8 @@
 
         </a>
     </article>
+
+ 
 
 
 

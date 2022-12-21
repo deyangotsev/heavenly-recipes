@@ -23,6 +23,7 @@ export class DataService {
     
   }
 
+
   //delete Recipe
  deleteRecipe(recipe: Recipe) {
     return this.afs.doc('/Recipes/'+recipe.id).delete();
