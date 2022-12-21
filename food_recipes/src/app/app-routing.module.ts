@@ -9,14 +9,15 @@ import { RecipeInfoPageComponent } from './recipe-info-page/recipe-info-page.com
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LinkGuardService } from './shared/link-guard.service';
+import { SecondGuardService } from './shared/second-guard.service';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'register', component: RegisterPageComponent},
-  {path: 'login', component: LoginPageComponent},
-  {path: 'create_recipe', component: CreateRecipePageComponent},
+  {path: 'register', component: RegisterPageComponent, canActivate: [SecondGuardService]},
+  {path: 'login', component: LoginPageComponent, canActivate: [SecondGuardService]},
+  {path: 'create_recipe', component: CreateRecipePageComponent, canActivate: [LinkGuardService]},
   {path: 'recipes', component:RecipesPageComponent},
-  {path: 'my_recipes', component: MyRecipesPageComponent},
+  {path: 'my_recipes', component: MyRecipesPageComponent, canActivate: [LinkGuardService]},
   {path: 'recipes/recipe/:id', component: RecipeInfoPageComponent},
   {path: 'my_recipes/recipe/:id', component: RecipeInfoPageComponent},
   {path: '**', component: PageNotFoundComponent},

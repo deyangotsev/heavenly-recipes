@@ -18,6 +18,7 @@ import { RecipeInfoPageComponent } from './recipe-info-page/recipe-info-page.com
 import { LinkGuardService } from './shared/link-guard.service';
 import { AuthService } from './shared/auth.service';
 import { MyRecipesPageComponent } from './my-recipes-page/my-recipes-page.component';
+import { SecondGuardService } from './shared/second-guard.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { MyRecipesPageComponent } from './my-recipes-page/my-recipes-page.compon
     FormsModule,
     FontAwesomeModule,
   ],
-  providers: [LinkGuardService, AuthService],
+  providers: [LinkGuardService,SecondGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -23,12 +23,13 @@ export class LinkGuardService implements CanActivate {
         let isLogged = localStorage.getItem('user');
 
         if(isLogged !== null) {
-            this.router.navigate(['']);
-            return false;
+            
+            return true;
             
         }
         else {
-            return true;
+            this.router.navigate(['']);
+            return false;
         }
 
         
