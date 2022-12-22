@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Recipe } from '../model/recipe';
 import { DataService } from '../shared/data.service';
 
@@ -13,10 +13,12 @@ export class RecipeInfoPageComponent implements OnInit {
   recipeId: any = '';
   retrievedRecipe: any = '';
   recipesList: any[] = [];
+  firebaseDocs: any[] = [];
+  isLoggedIn: boolean = false
 
 
 
-  constructor(private data: DataService, private activatedRoute: ActivatedRoute) { }
+  constructor(private data: DataService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
 
 
@@ -27,8 +29,12 @@ export class RecipeInfoPageComponent implements OnInit {
 
       next: (ss) => {
         ss.docs.forEach((doc) => {
+          this.firebaseDocs.push(doc);
           this.recipesList.push(doc.data())
         })
+      },
+      error: (err) => {
+        alert(err);
       },
       complete: () => {
         this.activatedRoute.paramMap.subscribe((param) => {
@@ -36,7 +42,11 @@ export class RecipeInfoPageComponent implements OnInit {
           this.retrievedRecipe = this.recipesList.find(x => x.id == this.recipeId);
         })
       }
-    })
+    });
+
+    if(localStorage.getItem('user') !== null) {
+      this.isLoggedIn = true;
+    }
 
   };
 
@@ -44,14 +54,28 @@ export class RecipeInfoPageComponent implements OnInit {
 
 
 
+  async deleteRecipe() {
 
+  
+  // if (window.confirm('Are you sure you want to delete this recipe ?')) {
+    //   this.data.deleteRecipe(recipeId);
+    // }
 
+    //  if(window.confirm('Are you sure you want to delete this recipe ?')) {
+    //   await this.data.deleteRecipe(this.recipeId).then(() => {this.router.navigate([''])})
 
+    let recipeToDelete = this.firebaseDocs.find( x => x.data().id == this.recipeId).id;
+  
 
-  deleteRecipe(recipe: Recipe) {
-    if (window.confirm('Are you sure you want to delete this recipe ?')) {
-      this.data.deleteRecipe(recipe);
+    try {
+      await this.data.deleteRecipe(recipeToDelete);
+      this.router.navigate(['/recipes'])
+    } catch (err) {
+      alert('Something went wrong' + err);
     }
+   
+    
+    
   }
 
 

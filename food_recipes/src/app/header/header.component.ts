@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   checkLogged:boolean = false;
 
   ngOnInit(): void {
-    console.log('loaded');
+    
     if(localStorage.getItem('user') !== null) {
       this.checkLogged = true;
     }
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
     let element:any = document.getElementById('logout-box');
     element.classList.remove("animate__animated", "animate__fadeInDown");
     element.style.display = 'none';
-    console.log(this.auth.isLoggedIn)
+    
   };
 
   logout() {
@@ -49,9 +49,7 @@ export class HeaderComponent implements OnInit {
   
   };
 
-  sigh() {
-    console.log(localStorage.getItem('user'));
-  }
+  
 
   
 }

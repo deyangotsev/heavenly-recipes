@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/compat/firestore'
+import { Router } from '@angular/router';
 import { Recipe } from '../model/recipe';
 
 @Injectable({
@@ -25,13 +26,16 @@ export class DataService {
 
 
   //delete Recipe
- deleteRecipe(recipe: Recipe) {
-    return this.afs.doc('/Recipes/'+recipe.id).delete();
+ deleteRecipe(recipeId: any) {
+    return this.afs.collection('/Recipes').doc(recipeId).delete();
+   
+    
+    // 
   }
 
   // not sure if this is the way
-  editRecipe(recipe: Recipe) {
-    this.deleteRecipe(recipe);
-    this.addRecipe(recipe);
-  }
+  // editRecipe(recipe: Recipe) {
+  //   this.deleteRecipe(recipe);
+  //   this.addRecipe(recipe);
+  // }
 }
