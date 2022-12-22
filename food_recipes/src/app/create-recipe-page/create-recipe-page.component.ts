@@ -93,10 +93,18 @@ export class CreateRecipePageComponent implements OnInit {
     this.recipeObj.author = this.author;
 
 
-    this.data.addRecipe(this.recipeObj);
+    if(form.invalid) {
+      alert('Please fill all the fields!');
+      return
+    } 
+    else {
+      this.data.addRecipe(this.recipeObj);
+      form.reset();
+    }
+    
   
 
-    form.reset();
+   
   };
 
 

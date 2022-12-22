@@ -24,7 +24,7 @@
     position: relative;
   }
   
-  .login-box .user-box input {
+   input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -169,4 +169,12 @@
     100% {
       bottom: 100%;
     }
+  };
+
+  input.ng-invalid.ng-touched {
+    border-bottom: 1px solid red;
+  }
+  
+  input.ng-valid {
+    border-bottom: 1px solid green;
   }

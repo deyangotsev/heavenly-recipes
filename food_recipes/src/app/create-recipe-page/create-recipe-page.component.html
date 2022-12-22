@@ -14,13 +14,14 @@
                 <div>
                     <div class="input_field">
                         <label for="">Recipe Title</label>
-                        <input type="text" name="title" [(ngModel)]="title" minlength="50" class="inputs" required="" placeholder="Give your recipe a title." >
+                        <input type="text" name="title" [(ngModel)]="title" minlength="50" class="inputs" required placeholder="Give your recipe a title." >
+        
                     </div>
 
 
                     <div class="input_field">
                         <label for="">Description</label>
-                        <textarea name="description" ngModel id="" [(ngModel)]="description" required="" placeholder="Share the story behind your recipe and what makes it special."></textarea>
+                        <textarea name="description" ngModel id="" [(ngModel)]="description" required placeholder="Share the story behind your recipe and what makes it special."></textarea>
                     </div>
                 </div>
 
@@ -47,7 +48,7 @@
 
                 <div class="ingredients_section" *ngFor="let el of ingredients; let i = index">
                     <input type="text" class="ingredients" [(ngModel)]="el.ingredient" #name="ngModel"
-                        name="ingredients{{i}}" placeholder="e.g 1 cup sugar">
+                        name="ingredients{{i}}" placeholder="e.g 1 cup sugar" required>
 
                     <fa-icon [icon]="removeIcon" (click)="removeIngredient(i)"></fa-icon>
                 </div>
@@ -77,7 +78,7 @@
                 <div class="ingredients_section" *ngFor="let el of directions; let i = index">
 
                     <textarea name="directions" class="textArea" id="" [(ngModel)]="el.direction" #name="ngModel"
-                        name="directions{{i}}" placeholder="e.g Preheat oven to 350 degrees F" required=""></textarea>
+                        name="directions{{i}}" placeholder="e.g Preheat oven to 350 degrees F" required></textarea>
 
                     <fa-icon [icon]="removeIcon" (click)="removeDirection(i)"></fa-icon>
                 </div>
@@ -94,13 +95,13 @@
 
                 <div style="display: flex; gap: 5px;">
                     <label for="servings">Servings</label>
-                    <input type="number" name="servings" id="servings" class="small_inputs" [(ngModel)]="servings">
+                    <input type="number" name="servings" id="servings" class="small_inputs" [(ngModel)]="servings" required>
                 </div>
 
                 <div style="display: flex; gap: 5px;">
                     <label for="prep_time">Prep Time</label>
-                    <input type="number" id="prep_time" name="prep_time" class="small_inputs" [(ngModel)]="prep_time">
-                    <select name="prep_time_unit" id="" class="small_inputs" [(ngModel)]="prep_time_unit">
+                    <input type="number" id="prep_time" name="prep_time" class="small_inputs" [(ngModel)]="prep_time" required>
+                    <select name="prep_time_unit" id="" class="small_inputs" [(ngModel)]="prep_time_unit" required>
                         <option value="mins">mins</option>
                         <option value="hours">hours</option>
                         <option value="days">days</option>
@@ -108,8 +109,8 @@
 
 
                     <label for="cook_time">Cook Time</label>
-                    <input type="number" id="cook_time" name="cook_time" class="small_inputs" [(ngModel)]="cook_time">
-                    <select name="prep_time_unit" id="" class="small_inputs" [(ngModel)]="cook_time_unit">
+                    <input type="number" id="cook_time" name="cook_time" class="small_inputs" [(ngModel)]="cook_time" required>
+                    <select name="prep_time_unit" id="" class="small_inputs" [(ngModel)]="cook_time_unit" required>
                         <option value="mins">mins</option>
                         <option value="hours">hours</option>
                         <option value="days">days</option>
@@ -119,6 +120,10 @@
             
             </fieldset>
         </div>
+
+        <!-- <div *ngIf="!form.valid && form.touched">
+            <small style="color: red; ">Please fill all the fields!</small>
+        </div> -->
 
         <button type="submit" class="addButton">Submit</button>
 

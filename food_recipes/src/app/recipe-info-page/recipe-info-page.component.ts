@@ -14,7 +14,7 @@ export class RecipeInfoPageComponent implements OnInit {
   retrievedRecipe: any = '';
   recipesList: any[] = [];
   firebaseDocs: any[] = [];
-  isLoggedIn: boolean = false
+  isAuthor: boolean = false
 
 
 
@@ -40,13 +40,23 @@ export class RecipeInfoPageComponent implements OnInit {
         this.activatedRoute.paramMap.subscribe((param) => {
           this.recipeId = param.get('id');
           this.retrievedRecipe = this.recipesList.find(x => x.id == this.recipeId);
+
+
+          if (localStorage.getItem('user') == this.retrievedRecipe.author) {
+            this.isAuthor = true;
+          }
+          else {
+            this.isAuthor = false;
+          }
+          
         })
       }
     });
 
-    if(localStorage.getItem('user') !== null) {
-      this.isLoggedIn = true;
+    if(localStorage.getItem('user') == this.retrievedRecipe.author) {
+      this.isAuthor = true;
     }
+
 
   };
 
