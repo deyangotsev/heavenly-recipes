@@ -22,7 +22,7 @@ export class RegisterPageComponent implements OnInit {
 
  
 
-  onSubmit(form: NgForm) {
+  async register(form: NgForm) {
 
     
     
@@ -31,9 +31,14 @@ export class RegisterPageComponent implements OnInit {
       window.alert('Passwords do not match!');
       return;
     }
-    else {
-       this.auth.register(this.email, this.password);
+        
+    try {
+      await this.auth.register(this.email, this.password).then( () => form.reset());
+    } catch (err) {
+      alert(err);
     }
+    
+    
 
    
 

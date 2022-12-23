@@ -1,5 +1,6 @@
 import { Component, OnInit, Type } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faMinusCircle, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Recipe } from '../model/recipe';
 import { DataService } from '../shared/data.service';
@@ -53,7 +54,7 @@ export class CreateRecipePageComponent implements OnInit {
 
 
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService , private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -93,14 +94,12 @@ export class CreateRecipePageComponent implements OnInit {
     this.recipeObj.author = this.author;
 
 
-    if(form.invalid) {
-      alert('Please fill all the fields!');
-      return
-    } 
-    else {
+    
+  
       this.data.addRecipe(this.recipeObj);
       form.reset();
-    }
+      this.router.navigate(['/recipes']);
+      
     
   
 

@@ -12,6 +12,7 @@ export class MyRecipesPageComponent implements OnInit {
   recipesList: any[] = [];
   myrecipesList: any[] = [];
   uid: string | null = '';
+  isEmpty: boolean = false;
 
   constructor(private data: DataService) { }
 
@@ -28,13 +29,19 @@ export class MyRecipesPageComponent implements OnInit {
 
           
         },
-
+        error: (err) => {
+          alert(err);
+        },
         complete: () => {
           this.recipesList.forEach(x => {
             this.myrecipesList.push(x);
           })
 
           this.myrecipesList = this.myrecipesList.filter(x => x.author == this.uid);
+
+          if(this.myrecipesList.length != 0) {
+            this.isEmpty = true;
+          } 
         }
 
       })

@@ -1,19 +1,26 @@
 <app-header></app-header>
 <main class="recipes-container">
 
-    <article class="recipe-card" *ngFor="let recipe of myrecipesList">
+    <div *ngIf="isEmpty; else elseBlock" >
+        <article class="recipe-card" *ngFor="let recipe of myrecipesList">
 
-        <a  routerLink="recipe/{{recipe.id}}" class="recipe-link">
-            <div class="image-container">
-                <img class="recipe-image" [src]="recipe.photo" alt="">
-            </div>
+            <a  routerLink="recipe/{{recipe.id}}" class="recipe-link">
+                <div class="image-container">
+                    <img class="recipe-image" [src]="recipe.photo" alt="">
+                </div>
+    
+                <div class="recipe-info">
+                    <h3 style="text-align: center;">{{recipe.title}}</h3>
+                </div>
+    
+            </a>
+        </article>
+    </div>
 
-            <div class="recipe-info">
-                <h3 style="text-align: center;">{{recipe.title}}</h3>
-            </div>
-
-        </a>
-    </article>
+    <ng-template #elseBlock>
+        <h1 style="color: black;">You haven't made any recipes yet! :(</h1>
+    </ng-template>
+    
 
  
 
