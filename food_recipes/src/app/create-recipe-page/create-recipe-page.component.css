@@ -114,3 +114,7 @@ fieldset {
     background: transparent;
     color: white;
   }
+
+  option {
+    background-color: black;
+  }

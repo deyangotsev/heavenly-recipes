@@ -93,21 +93,26 @@
         <div class="formLayout_section">
             <fieldset style="display: flex; flex-direction: column; gap: 10px;">
 
-                <div style="display: flex; gap: 5px;">
+                <div style="display: flex; gap: 30px;">
                     <label for="servings">Servings</label>
                     <input type="number" name="servings" id="servings" class="small_inputs" [(ngModel)]="servings" required>
                 </div>
 
-                <div style="display: flex; gap: 5px;">
+                <div style="display: flex; gap: 19px;">
                     <label for="prep_time">Prep Time</label>
                     <input type="number" id="prep_time" name="prep_time" class="small_inputs" [(ngModel)]="prep_time" required>
-                    <select name="prep_time_unit" id="" class="small_inputs" [(ngModel)]="prep_time_unit" required>
+                    <select style="margin-left: -5px;" name="prep_time_unit" id="" class="small_inputs" [(ngModel)]="prep_time_unit" required>
                         <option value="mins">mins</option>
                         <option value="hours">hours</option>
                         <option value="days">days</option>
                     </select>
 
 
+                 
+                   
+                </div>
+
+                <div  style="display: flex; gap: 15px;">
                     <label for="cook_time">Cook Time</label>
                     <input type="number" id="cook_time" name="cook_time" class="small_inputs" [(ngModel)]="cook_time" required>
                     <select name="prep_time_unit" id="" class="small_inputs" [(ngModel)]="cook_time_unit" required>
@@ -115,8 +120,8 @@
                         <option value="hours">hours</option>
                         <option value="days">days</option>
                     </select>
-                   
                 </div>
+                
             
             </fieldset>
         </div>
@@ -125,7 +130,10 @@
             <small style="color: red; ">Please fill all the fields!</small>
         </div> -->
 
-        <button type="submit" class="addButton">Submit</button>
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+            <button style="padding: 10px 30px;" type="submit" class="addButton">Submit</button>
+        </div>
+        
 
     </form>
 </div>
