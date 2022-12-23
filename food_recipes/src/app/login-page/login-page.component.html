@@ -17,7 +17,7 @@
                 <small style="color: red; ">Password must be at least 8 characters long!</small>
             </div>
         </div>
-        <button (click)="login()" [disabled]="!form.valid">
+        <button (click)="login(form)" [disabled]="!form.valid">
             <span></span>
             <span></span>
             <span></span>

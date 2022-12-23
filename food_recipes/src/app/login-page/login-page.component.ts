@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 
 @Component({
@@ -15,14 +16,19 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
+  async login(form: NgForm) {
 
     if(this.email == '' || this.password == '') {
       window.alert('Email and Password fields need to be filled!');
       return;
     }
 
-    this.auth.login(this.email, this.password);
+    try {
+      await this.auth.login(this.email, this.password).then(() => form.reset());
+    } catch (err) {
+      alert(err);
+    }
+   
     // this.auth.isLoggedIn = true;
     // console.log(this.auth.isLoggedIn);
 
