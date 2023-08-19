@@ -11,10 +11,17 @@ html {
     background: #E2D1C3;
     overflow-x: hidden;
     color: white;
+    
+    
   }
   
   * {
     box-sizing: border-box;
-   
-  
+    /*Hiding vertical scroll inf Firefox: */
+    scrollbar-width: none;
+  }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+  body::-webkit-scrollbar {
+    display: none;
   }
